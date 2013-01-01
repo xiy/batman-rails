@@ -54,14 +54,12 @@ module Batman
       def ready_function(file_type=:javascript)
         if file_type == :coffeescript
 <<-CODE
-\n# Run the Batman app
-$(document).ready ->
+\n$(document).ready ->
   #{js_app_name}.run()
 CODE
         else
 <<-CODE
-\n// Run the Batman app
-$(document).ready(function(){
+\n$(document).ready(function(){
   #{js_app_name}.run();
 });
 CODE
@@ -70,18 +68,14 @@ CODE
 
       def batman_requires(file_type=:javascript)
 code = <<-CODE
-\n// Batman.js and its adapters
 //= require batman/es5-shim
 //= require batman/batman
 //= require batman/batman.jquery
 //= require batman/batman.rails
-
 //= require #{app_name}
-
 //= require_tree ./models
 //= require_tree ./controllers
 //= require_tree ./helpers
-\n
 CODE
         file_type == :coffeescript ? code.gsub('//', '#') : code
       end
