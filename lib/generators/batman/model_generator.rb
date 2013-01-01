@@ -4,6 +4,7 @@ module Batman
     class ModelGenerator < ::Rails::Generators::NamedBase
       include Common
       requires_app_name
+      requires_js_path
 
       desc "This generator creates a Batman model"
       argument :attributes, :type => :array, :default => [], :banner => "field:type field:type"

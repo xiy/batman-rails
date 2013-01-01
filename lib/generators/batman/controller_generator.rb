@@ -4,14 +4,15 @@ module Batman
     class ControllerGenerator < ::Rails::Generators::NamedBase
       include Common
       requires_app_name
+      requires_js_path
 
       desc "This generator creates a Batman controller"
       argument :actions, :type => :array, :default => [], :banner => "action action"
 
 
       RESERVED_JS_WORDS = %w{
-        break case catch continue debugger default delete do else finally for 
-        function if in instanceof new return switch this throw try typeof var void while with 
+        break case catch continue debugger default delete do else finally for
+        function if in instanceof new return switch this throw try typeof var void while with
       }
 
       def validate_no_reserved_words

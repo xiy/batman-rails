@@ -3,6 +3,7 @@ module Batman
   module Generators
     class HelperGenerator < ::Rails::Generators::NamedBase
       include Common
+      requires_js_path
 
       desc "This generator creates a Batman helper"
 

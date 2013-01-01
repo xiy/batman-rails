@@ -4,6 +4,7 @@ module Batman
     class ScaffoldGenerator < ::Rails::Generators::NamedBase
       include Common
       requires_app_name
+      requires_js_path
 
       desc "This generator creates the client side CRUD scaffolding"
 

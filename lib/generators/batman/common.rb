@@ -27,7 +27,7 @@ module Batman
       end
 
       def js_path
-        "app/assets/javascripts"
+        @js_path ||= options[:js_path] || "app/assets/javascripts"
       end
 
       def singular_model_name
@@ -37,7 +37,12 @@ module Batman
       module ClassMethods
         def requires_app_name
           class_option :app_name, :type => :string, :optional => true,
-                       :desc => "Name of the Batman app (defaults to the Rails app name"
+                       :desc => "Name of the Batman app (defaults to the Rails app name)"
+        end
+
+        def requires_js_path
+          class_option :js_path, :type => :string, :optional => true,
+                :desc => "The path to your assets directory (defaults to 'app/assets/javascripts')"
         end
       end
     end

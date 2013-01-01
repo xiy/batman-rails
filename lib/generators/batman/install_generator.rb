@@ -5,6 +5,7 @@ module Batman
     class InstallGenerator < ::Rails::Generators::Base
       include Common
       requires_app_name
+      requires_js_path
 
       desc "This generator installs Batman.js with a default folder layout"
 
